@@ -6,24 +6,21 @@ import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
 
-/**
- * @author: xucunxin
- * @date: 2018/11/27
- * @package cn.appsys.service.developer
- * @description: TODO
- */
 @Service
-public class DevUserServicelmpl implements DevUserService{
+public class DevUserServicelmpl implements DevUserService {
     @Resource
-    private DevUserMapper devUserMapper;
+    private DevUserMapper mapper;
     @Override
     public DevUser login(String devCode, String devPassword) throws Exception {
-        DevUser devUser=null;
-        if(null!=devUser){
-            if(!devUser.getDevPassword().equals(devPassword)){
-                devUser=null;
-            }
+        // TODO Auto-generated method stub
+        DevUser user = null;
+        user = mapper.getLoginUser(devCode);
+        //匹配密码
+        if(null != user){
+            if(!user.getDevPassword().equals(devPassword))
+                user = null;
         }
-        return devUser;
+        return user;
     }
+
 }

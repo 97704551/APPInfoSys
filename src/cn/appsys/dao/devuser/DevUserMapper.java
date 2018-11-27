@@ -10,6 +10,5 @@ import org.apache.ibatis.annotations.Param;
  * @description: TODO
  */
 public interface DevUserMapper {
-    //�û�����ƽ̨��¼
     public DevUser getLoginUser(@Param("devCode") String devCode)throws Exception;
 }
